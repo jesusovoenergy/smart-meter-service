@@ -1,0 +1,34 @@
+http:
+  port: 8032
+  adminPort: 8033
+
+spring:
+  # Spring Context Type (Required)
+  # either "file" or "classpath"
+  appContextType: classpath
+
+  # Spring Config Locations (Required)
+  # The location of one or more beans.xml files
+  configLocations:
+    - application-context.xml
+
+  # JAX-RS Resources (Required if you want your service to do anything)
+  # one or more spring beans that are JAX-RS resources
+  resources:
+    - smartMeterResource
+
+  # DW Health Checks (Optional, but recommended)
+  # list of health check beans (must extend com.yammer.metrics.core.HealthCheck)
+  healthChecks:
+    - basicHealthCheck
+
+logging:
+  level: INFO
+  loggers:
+    "org.eclipse": WARN
+    "org.apache.http": WARN
+
+
+smartReadingUrl: http://blabla.com
+
+
